@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Login | AuditAssure</title>
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    >
+
+    <link rel="stylesheet" href="css/login.css">
+
+</head>
+
+<body>
+
+    <div class="login-background">
+
+        <span class="dot d1"></span>
+        <span class="dot d2"></span>
+        <span class="dot d3"></span>
+
+        <span class="square s1"></span>
+        <span class="square s2"></span>
+
+    </div>
+
+
+    <main class="login-page">
+
+        <!-- LOGO -->
+
+        <a href="index.html" class="logo">
+
+            <span class="logo-icon">
+
+                <i class="fa-solid fa-shield-halved"></i>
+
+            </span>
+
+            Audit<span>Assure</span>
+
+        </a>
+
+
+        <!-- LOGIN CARD -->
+
+        <section class="login-card">
+
+            <div class="login-heading">
+
+                <div class="lock-icon">
+
+                    <i class="fa-solid fa-lock"></i>
+
+                </div>
+
+                <p>SECURE ACCESS</p>
+
+                <h1>
+                    Welcome Back
+                </h1>
+
+                <span>
+                    Sign in to your AuditAssure account
+                </span>
+
+            </div>
+
+
+            <!-- ROLE -->
+
+            <div class="role-title">
+
+                <span>Login As</span>
+
+            </div>
+
+
+            <div class="role-selector">
+
+                <button
+                    class="role active"
+                    data-role="user"
+                >
+
+                    <i class="fa-solid fa-user"></i>
+
+                    <span>User</span>
+
+                </button>
+
+
+                <button
+                    class="role"
+                    data-role="admin"
+                >
+
+                    <i class="fa-solid fa-user-shield"></i>
+
+                    <span>Admin</span>
+
+                </button>
+
+            </div>
+
+
+            <!-- FORM -->
+
+            <form id="loginForm">
+
+                <input
+                    type="hidden"
+                    id="selectedRole"
+                    value="user"
+                >
+
+
+                <div class="input-box">
+
+                    <label>Email Address</label>
+
+                    <div class="input">
+
+                        <i class="fa-solid fa-envelope"></i>
+
+                        <input
+                            type="email"
+                            id="email"
+                            placeholder="Enter your email"
+                            required
+                        >
+
+                    </div>
+
+                </div>
+
+
+          <div class="input-box">
+
+    <label for="password">Password</label>
+
+    <div class="input">
+
+        <i class="fa-solid fa-lock"></i>
+
+        <input
+            type="password"
+            id="password"
+            name="password"
+            placeholder="Enter password"
+            required
+        >
+
+        <button
+            type="button"
+            id="passwordToggle"
+            class="password-toggle"
+            aria-label="Show password"
+        >
+            <i class="fa-solid fa-eye"></i>
+        </button>
+
+    </div>
+
+</div>
+
+
+                <div class="remember">
+
+                    <label>
+
+                        <input
+                            type="checkbox"
+                            id="remember"
+                        >
+
+                        Remember me
+
+                    </label>
+
+                    <a href="#">
+                        Forgot Password?
+                    </a>
+
+                </div>
+
+<div class="auth-buttons">
+
+    <!-- Login Button -->
+    <button
+        type="submit"
+        class="login-btn"
+    >
+        <span>Login</span>
+    </button>
+
+    <!-- Sign Up Button -->
+    <button
+        type="button"
+        class="signup-btn"
+        onclick="window.location.href='signup.html'"
+    >
+        <span>Sign Up</span>
+        <!-- <i class="fa-solid fa-arrow-right"></i> -->
+    </button>
+
+</div>
+
+            </form>
+
+
+            <!-- GOOGLE -->
+
+            <div class="or">
+
+                <span></span>
+
+                <p>OR</p>
+
+                <span></span>
+
+            </div>
+<button
+    class="google-btn"
+    type="button"
+    onclick="window.location.href='404.html'"
+>
+    <i class="fa-brands fa-google"></i>
+    Continue with Google
+</button>
+
+
+            <div class="back-home">
+
+                <a href="index.html">
+
+                    <i class="fa-solid fa-arrow-left"></i>
+
+                    Back to Home
+
+                </a>
+
+            </div>
+
+        </section>
+
+
+        <footer>
+
+            © 2026 AuditAssure · Secure Audit & Assurance Platform
+
+        </footer>
+
+    </main>
+
+
+    <script src="./javascript/login.js"></script>
+
+</body>
+
+</html>

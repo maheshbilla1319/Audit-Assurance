@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Create Account | AuditAssure</title>
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
+    <!-- Font Awesome -->
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    >
+
+    <!-- Signup CSS -->
+    <link rel="stylesheet" href="css/signup.css">
+</head>
+
+<body>
+
+    <!-- ================= BACKGROUND ================= -->
+
+    <div class="signup-bg">
+
+        <div class="bg-grid"></div>
+
+        <span class="bg-dot dot1"></span>
+        <span class="bg-dot dot2"></span>
+        <span class="bg-dot dot3"></span>
+        <span class="bg-dot dot4"></span>
+        <span class="bg-dot dot5"></span>
+
+        <span class="bg-square square1"></span>
+        <span class="bg-square square2"></span>
+
+        <div class="glow glow1"></div>
+        <div class="glow glow2"></div>
+
+    </div>
+
+
+    <!-- ================= MAIN ================= -->
+
+    <main class="signup-page">
+
+        <!-- ================= BRAND ================= -->
+
+        <a href="index.html" class="brand">
+
+            <div class="brand-icon">
+                <i class="fa-solid fa-shield-halved"></i>
+            </div>
+
+            <div class="brand-name">
+                Audit<span>Assure</span>
+            </div>
+
+        </a>
+
+
+        <!-- ================= CARD ================= -->
+
+        <section class="signup-card">
+
+            <!-- HEADER -->
+
+            <div class="signup-heading">
+
+                <div class="signup-icon">
+                    <i class="fa-solid fa-user-plus"></i>
+                </div>
+
+                <p class="heading-label">
+                    SECURE REGISTRATION
+                </p>
+
+                <h1>
+                    Create Your Account
+                </h1>
+
+                <p class="heading-text">
+                    Join the AuditAssure secure audit platform
+                </p>
+
+            </div>
+
+
+            <!-- ================= ROLE ================= -->
+
+            <div class="section-label">
+                <span>Choose Account Type</span>
+            </div>
+
+
+            <div class="role-container">
+
+                <!-- USER -->
+
+                <button
+                    type="button"
+                    class="role-card active"
+                    data-role="user"
+                >
+
+                    <span class="role-icon user-icon">
+                        <i class="fa-solid fa-user"></i>
+                    </span>
+
+                    <span class="role-content">
+                        <strong>User Account</strong>
+                        <small>Personal access</small>
+                    </span>
+
+                    <span class="role-check">
+                        <i class="fa-solid fa-check"></i>
+                    </span>
+
+                </button>
+
+
+                <!-- ADMIN -->
+
+                <button
+                    type="button"
+                    class="role-card"
+                    data-role="admin"
+                >
+
+                    <span class="role-icon admin-icon">
+                        <i class="fa-solid fa-user-shield"></i>
+                    </span>
+
+                    <span class="role-content">
+                        <strong>Admin Account</strong>
+                        <small>Management access</small>
+                    </span>
+
+                    <span class="role-check">
+                        <i class="fa-solid fa-check"></i>
+                    </span>
+
+                </button>
+
+            </div>
+
+
+            <!-- ================= FORM ================= -->
+
+            <form id="signupForm">
+
+                <input
+                    type="hidden"
+                    id="accountRole"
+                    value="user"
+                >
+
+
+                <!-- NAME -->
+
+                <div class="input-group">
+
+                    <label for="fullName">
+                        Full Name
+                    </label>
+
+                    <div class="input-wrapper">
+
+                        <i class="fa-solid fa-user"></i>
+
+                        <input
+                            type="text"
+                            id="fullName"
+                            placeholder="Enter your full name"
+                            autocomplete="name"
+                            required
+                        >
+
+                    </div>
+
+                </div>
+
+
+                <!-- EMAIL -->
+
+                <div class="input-group">
+
+                    <label for="email">
+                        Email Address
+                    </label>
+
+                    <div class="input-wrapper">
+
+                        <i class="fa-solid fa-envelope"></i>
+
+                        <input
+                            type="email"
+                            id="email"
+                            placeholder="Enter your email address"
+                            autocomplete="email"
+                            required
+                        >
+
+                    </div>
+
+                </div>
+
+
+                <!-- PASSWORD -->
+
+                <div class="input-group">
+
+                    <label for="password">
+                        Password
+                    </label>
+
+                    <div class="input-wrapper">
+
+                        <i class="fa-solid fa-lock"></i>
+
+                        <input
+                            type="password"
+                            id="password"
+                            placeholder="Create a strong password"
+                            autocomplete="new-password"
+                            required
+                        >
+
+                        <button
+                            type="button"
+                            class="eye-btn"
+                            data-target="password"
+                            aria-label="Show password"
+                        >
+                            <i class="fa-solid fa-eye"></i>
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <!-- STRENGTH -->
+
+                <div class="strength-container">
+
+                    <div class="strength-bar">
+                        <span id="strengthBar"></span>
+                    </div>
+
+                    <small id="strengthText">
+                        Password strength
+                    </small>
+
+                </div>
+
+
+                <!-- CONFIRM PASSWORD -->
+
+                <div class="input-group">
+
+                    <label for="confirmPassword">
+                        Confirm Password
+                    </label>
+
+                    <div class="input-wrapper">
+
+                        <i class="fa-solid fa-lock"></i>
+
+                        <input
+                            type="password"
+                            id="confirmPassword"
+                            placeholder="Confirm your password"
+                            autocomplete="new-password"
+                            required
+                        >
+
+                        <button
+                            type="button"
+                            class="eye-btn"
+                            data-target="confirmPassword"
+                            aria-label="Show confirm password"
+                        >
+                            <i class="fa-solid fa-eye"></i>
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <!-- TERMS -->
+
+                <label class="terms">
+
+                    <input
+                        type="checkbox"
+                        id="terms"
+                        required
+                    >
+
+                    <span>
+                        I agree to the
+                        <a href="#" onclick="return false;">Terms</a>
+                        and
+                        <a href="#" onclick="return false;">
+                            Privacy Policy
+                        </a>
+                    </span>
+
+                </label>
+
+
+                <!-- CREATE ACCOUNT -->
+
+                <button
+                    type="submit"
+                    class="create-btn"
+                    id="createBtn"
+                >
+                    <span>Create Account</span>
+                    <i class="fa-solid fa-arrow-right"></i>
+                </button>
+
+            </form>
+
+
+            <!-- ================= DIVIDER ================= -->
+
+            <div class="divider">
+
+                <span></span>
+
+                <p>OR</p>
+
+                <span></span>
+
+            </div>
+
+
+            <!-- ================= GOOGLE ================= -->
+
+            <a href="404.html" class="google-btn" id="googleSignup">
+                <span class="google-logo">
+                    <i class="fa-brands fa-google"></i>
+                </span>
+
+                <span>
+                    Continue with Google
+                </span>
+            </a>
+
+            <!-- ================= LOGIN ================= -->
+
+            <div class="login-link">
+
+                <span>
+                    Already have an account?
+                </span>
+
+                <a href="login.html">
+                    Login
+                    <i class="fa-solid fa-arrow-right"></i>
+                </a>
+
+            </div>
+
+
+            <!-- ================= HOME ================= -->
+
+            <a href="index.html" class="back-home">
+
+                <i class="fa-solid fa-house"></i>
+
+                <span>
+                    Back to Home
+                </span>
+
+            </a>
+
+        </section>
+
+
+        <!-- ================= FOOTER ================= -->
+
+        <footer>
+
+            <span>
+                © <span id="year"></span> AuditAssure
+            </span>
+
+            <span>
+                Secure Audit & Assurance Platform
+            </span>
+
+        </footer>
+
+    </main>
+
+
+    <!-- ================= JS ================= -->
+
+    <script src="./javascript/signup.js"></script>
+
+</body>
+</html>

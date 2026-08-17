@@ -1,0 +1,1473 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>User Dashboard | AuditAssure</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    >
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <link rel="stylesheet" href="css/user.css">
+</head>
+
+<body>
+
+<!-- =====================================================
+     BACKGROUND
+===================================================== -->
+
+<div class="background-effects">
+    <span class="bg-dot dot1"></span>
+    <span class="bg-dot dot2"></span>
+    <span class="bg-dot dot3"></span>
+    <span class="bg-dot dot4"></span>
+
+    <span class="floating-box box1"></span>
+    <span class="floating-box box2"></span>
+    <span class="floating-box box3"></span>
+
+    <div class="bg-glow glow1"></div>
+    <div class="bg-glow glow2"></div>
+</div>
+
+
+<!-- =====================================================
+     SIDEBAR
+===================================================== -->
+
+<aside class="sidebar" id="sidebar">
+
+   <div class="sidebar-logo">
+
+    <div class="logo-icon">
+        <img
+            src="./assets/image-2.webp"
+            alt="Stackly Assure Logo"
+        >
+    </div>
+
+    <div class="logo-text">
+        <strong>Stackly<span>Assure</span></strong>
+        <small>User Portal</small>
+    </div>
+
+</div>
+
+
+    <div class="user-mini">
+
+        <div class="avatar" id="sidebarAvatar">
+            U
+        </div>
+
+        <div>
+            <strong id="sidebarName">User</strong>
+            <small id="sidebarEmail">
+                user@gmail.com
+            </small>
+        </div>
+
+    </div>
+
+
+    <nav class="sidebar-nav">
+
+        <p class="nav-title">MAIN</p>
+
+        <a href="#dashboard"
+           class="nav-link active"
+           data-section="dashboard">
+
+            <i class="fa-solid fa-chart-pie"></i>
+            <span>Dashboard</span>
+
+        </a>
+
+
+        <a href="#audits"
+           class="nav-link"
+           data-section="audits">
+
+            <i class="fa-solid fa-file-shield"></i>
+            <span>My Audits</span>
+
+        </a>
+
+
+        <a href="#reports"
+           class="nav-link"
+           data-section="reports">
+
+            <i class="fa-solid fa-chart-column"></i>
+            <span>Reports</span>
+
+        </a>
+
+
+        <a href="#documents"
+           class="nav-link"
+           data-section="documents">
+
+            <i class="fa-solid fa-folder-open"></i>
+            <span>Documents</span>
+
+        </a>
+
+
+        <p class="nav-title">ACCOUNT</p>
+
+        <a href="#settings"
+           class="nav-link"
+           data-section="settings">
+
+            <i class="fa-solid fa-gear"></i>
+            <span>Settings</span>
+
+        </a>
+
+
+        <a href="#support"
+           class="nav-link"
+           data-section="support">
+
+            <i class="fa-solid fa-headset"></i>
+            <span>Support</span>
+
+        </a>
+
+    </nav>
+
+
+    <button class="sidebar-logout" id="logoutBtn">
+        <i class="fa-solid fa-right-from-bracket"></i>
+        Logout
+    </button>
+
+</aside>
+
+
+<!-- =====================================================
+     MOBILE OVERLAY
+===================================================== -->
+
+<div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+
+<!-- =====================================================
+     MAIN
+===================================================== -->
+
+<main class="main-content">
+
+
+    <!-- =================================================
+         TOPBAR
+    ================================================= -->
+<header class="topbar">
+
+    <!-- Mobile Menu -->
+    <button
+        class="menu-btn"
+        id="menuBtn"
+        type="button"
+        aria-label="Open navigation menu"
+        title="Open menu"
+    >
+        <i class="fa-solid fa-bars"></i>
+    </button>
+
+
+    <!-- Page Heading -->
+    <div class="page-heading">
+        <span>USER PORTAL</span>
+        <h2 id="pageTitle">Dashboard</h2>
+    </div>
+
+
+    <!-- Topbar Actions -->
+    <div class="topbar-actions">
+
+        <!-- Notifications -->
+        <button
+            class="icon-btn notification-btn"
+            id="notificationBtn"
+            type="button"
+            aria-label="Notifications"
+            title="Notifications"
+        >
+            <i class="fa-regular fa-bell"></i>
+            <span class="notification-dot"></span>
+        </button>
+
+
+        <!-- Profile -->
+        <div class="profile-wrapper">
+
+            <button
+                class="profile-btn"
+                id="profileBtn"
+                type="button"
+                aria-label="Open profile menu"
+                aria-expanded="false"
+            >
+
+                <div
+                    class="profile-avatar"
+                    id="profileAvatar"
+                >
+                    U
+                </div>
+
+
+                <div class="profile-info">
+
+                    <strong id="userName">
+                        User
+                    </strong>
+
+                    <small>
+                        User Account
+                    </small>
+
+                </div>
+
+
+                <i class="fa-solid fa-chevron-down"></i>
+
+            </button>
+
+
+            <!-- Profile Dropdown -->
+            <div
+                class="profile-menu"
+                id="profileMenu"
+                aria-hidden="true"
+            >
+
+                <div class="profile-menu-head">
+
+                    <div
+                        class="profile-avatar large"
+                        id="menuAvatar"
+                    >
+                        U
+                    </div>
+
+
+                    <div>
+
+                        <strong id="menuName">
+                            User
+                        </strong>
+
+                        <small id="menuEmail">
+                            user@gmail.com
+                        </small>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Profile Settings -->
+                <a
+                    href="#settings"
+                    data-section="settings"
+                >
+                    <i class="fa-solid fa-user-gear"></i>
+                    <span>Profile Settings</span>
+                </a>
+
+
+                <!-- Help Center -->
+                <a
+                    href="#support"
+                    data-section="support"
+                >
+                    <i class="fa-solid fa-circle-question"></i>
+                    <span>Help Center</span>
+                </a>
+
+
+                <!-- Logout -->
+                <button
+                    id="menuLogout"
+                    type="button"
+                    title="Logout"
+                >
+                    <i class="fa-solid fa-right-from-bracket"></i>
+                    <span>Logout</span>
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</header>
+
+    <!-- =================================================
+         DASHBOARD SECTION
+    ================================================= -->
+<!-- =========================================================
+     DASHBOARD
+========================================================= -->
+<section class="page-section active-section" id="dashboard">
+
+    <!-- WELCOME BANNER -->
+    <div class="welcome-banner">
+
+        <div class="welcome-content">
+
+            <span class="eyebrow">
+                <i class="fa-solid fa-circle-check"></i>
+                SECURE USER PORTAL
+            </span>
+
+            <h1>
+                Welcome back,
+                <span id="welcomeName">User</span>
+            </h1>
+
+            <p>
+                Track your audits, review compliance reports
+                and manage your documents from one secure place.
+            </p>
+
+            <button
+                type="button"
+                class="primary-btn"
+                data-section="audits"
+                title="View My Audits"
+            >
+                <i class="fa-solid fa-plus"></i>
+                <span>View My Audits</span>
+            </button>
+
+        </div>
+
+
+        <!-- WELCOME VISUAL -->
+        <div class="welcome-visual">
+
+            <div class="orbit orbit-one"></div>
+            <div class="orbit orbit-two"></div>
+
+            <div class="shield-large">
+                <i class="fa-solid fa-shield-halved"></i>
+            </div>
+
+            <span class="visual-dot v1"></span>
+            <span class="visual-dot v2"></span>
+            <span class="visual-dot v3"></span>
+
+        </div>
+
+    </div>
+
+
+    <!-- =====================================================
+         BRAND / SERVICE CARDS
+    ====================================================== -->
+    <div class="brand-grid">
+
+        <div class="brand-card">
+            <div class="brand-card-icon cyan">
+                <i class="fa-solid fa-shield-halved"></i>
+            </div>
+
+            <strong>AuditSecure</strong>
+            <span>Protected</span>
+        </div>
+
+
+        <div class="brand-card">
+            <div class="brand-card-icon orange">
+                <i class="fa-solid fa-file-circle-check"></i>
+            </div>
+
+            <strong>Compliance</strong>
+            <span>Verified</span>
+        </div>
+
+
+        <div class="brand-card">
+            <div class="brand-card-icon purple">
+                <i class="fa-solid fa-chart-line"></i>
+            </div>
+
+            <strong>Analytics</strong>
+            <span>Live Data</span>
+        </div>
+
+
+        <div class="brand-card">
+            <div class="brand-card-icon green">
+                <i class="fa-solid fa-lock"></i>
+            </div>
+
+            <strong>SecureDocs</strong>
+            <span>Encrypted</span>
+        </div>
+
+
+        <div class="brand-card">
+            <div class="brand-card-icon pink">
+                <i class="fa-solid fa-user-check"></i>
+            </div>
+
+            <strong>TrustCheck</strong>
+            <span>Active</span>
+        </div>
+
+    </div>
+
+
+    <!-- =====================================================
+         STATISTICS
+    ====================================================== -->
+    <div class="stats-grid">
+
+        <div class="stat-card">
+
+            <div class="stat-icon cyan">
+                <i class="fa-solid fa-file-shield"></i>
+            </div>
+
+            <div>
+                <span>Total Audits</span>
+
+                <h3 data-count="18">0</h3>
+
+                <small>
+                    <i class="fa-solid fa-arrow-up"></i>
+                    12% this month
+                </small>
+            </div>
+
+        </div>
+
+
+        <div class="stat-card">
+
+            <div class="stat-icon orange">
+                <i class="fa-solid fa-spinner"></i>
+            </div>
+
+            <div>
+                <span>In Progress</span>
+
+                <h3 data-count="5">0</h3>
+
+                <small>
+                    Active audits
+                </small>
+            </div>
+
+        </div>
+
+
+        <div class="stat-card">
+
+            <div class="stat-icon green">
+                <i class="fa-solid fa-circle-check"></i>
+            </div>
+
+            <div>
+                <span>Completed</span>
+
+                <h3 data-count="11">0</h3>
+
+                <small>
+                    <i class="fa-solid fa-arrow-up"></i>
+                    8% completed
+                </small>
+            </div>
+
+        </div>
+
+
+        <div class="stat-card">
+
+            <div class="stat-icon purple">
+                <i class="fa-solid fa-percent"></i>
+            </div>
+
+            <div>
+                <span>Compliance</span>
+
+                <h3 data-count="94">0%</h3>
+
+                <small>
+                    Excellent status
+                </small>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- =====================================================
+         CHART + PROGRESS
+    ====================================================== -->
+    <div class="dashboard-grid">
+
+        <!-- CHART -->
+        <div class="panel chart-panel">
+
+            <div class="panel-header">
+
+                <div>
+                    <span class="panel-label">
+                        AUDIT ANALYTICS
+                    </span>
+
+                    <h3>Audit Activity</h3>
+                </div>
+
+
+                <select
+                    id="chartPeriod"
+                    class="chart-period"
+                    aria-label="Select audit chart period"
+                >
+                    <option value="monthly" selected>
+                        Monthly
+                    </option>
+
+                    <option value="weekly">
+                        Weekly
+                    </option>
+
+                    <option value="yearly">
+                        Yearly
+                    </option>
+                </select>
+
+            </div>
+
+
+            <div class="chart-box">
+                <canvas id="auditChart"></canvas>
+            </div>
+
+        </div>
+
+
+        <!-- PROGRESS -->
+        <div class="panel progress-panel">
+
+            <div class="panel-header">
+
+                <div>
+                    <span class="panel-label">
+                        COMPLIANCE
+                    </span>
+
+                    <h3>Audit Progress</h3>
+                </div>
+
+                <i class="fa-solid fa-chart-simple"></i>
+
+            </div>
+
+
+            <div
+                class="progress-circle"
+                role="progressbar"
+                aria-valuenow="94"
+                aria-valuemin="0"
+                aria-valuemax="100"
+                aria-label="Overall audit completion: 94%"
+            >
+
+                <div>
+                    <strong>94%</strong>
+                    <span>Complete</span>
+                </div>
+
+            </div>
+
+
+            <div class="progress-list">
+
+                <!-- Financial -->
+                <div>
+
+                    <div class="progress-label">
+                        <span>Financial Audit</span>
+                        <strong>96%</strong>
+                    </div>
+
+                    <div
+                        class="progress-bar"
+                        role="progressbar"
+                        aria-valuenow="96"
+                        aria-valuemin="0"
+                        aria-valuemax="100"
+                        aria-label="Financial Audit: 96%"
+                    >
+                        <span style="width: 96%;"></span>
+                    </div>
+
+                </div>
+
+
+                <!-- Compliance -->
+                <div>
+
+                    <div class="progress-label">
+                        <span>Compliance Review</span>
+                        <strong>91%</strong>
+                    </div>
+
+                    <div
+                        class="progress-bar"
+                        role="progressbar"
+                        aria-valuenow="91"
+                        aria-valuemin="0"
+                        aria-valuemax="100"
+                        aria-label="Compliance Review: 91%"
+                    >
+                        <span style="width: 91%;"></span>
+                    </div>
+
+                </div>
+
+
+                <!-- Risk -->
+                <div>
+
+                    <div class="progress-label">
+                        <span>Risk Assessment</span>
+                        <strong>88%</strong>
+                    </div>
+
+                    <div
+                        class="progress-bar"
+                        role="progressbar"
+                        aria-valuenow="88"
+                        aria-valuemin="0"
+                        aria-valuemax="100"
+                        aria-label="Risk Assessment: 88%"
+                    >
+                        <span style="width: 88%;"></span>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- =====================================================
+         RECENT AUDITS
+    ====================================================== -->
+    <div class="panel table-panel">
+
+        <div class="panel-header">
+
+            <div>
+                <span class="panel-label">
+                    AUDIT MANAGEMENT
+                </span>
+
+                <h3>Recent Audits</h3>
+            </div>
+
+
+            <button
+                type="button"
+                class="outline-btn"
+                data-section="audits"
+                title="View all audits"
+            >
+                <span>View All</span>
+                <i class="fa-solid fa-arrow-right"></i>
+            </button>
+
+        </div>
+
+
+        <div class="table-wrapper">
+
+            <table id="auditTable">
+
+                <thead>
+                    <tr>
+                        <th>Audit ID</th>
+                        <th>Audit Type</th>
+                        <th>Date</th>
+                        <th>Progress</th>
+                        <th>Status</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+
+
+                <tbody>
+
+                    <!-- =================================================
+                         AUDIT 1
+                    ================================================== -->
+                    <tr>
+
+                        <td>#AU-1024</td>
+
+                        <td>Financial Audit</td>
+
+                        <td>12 Aug 2026</td>
+
+
+                        <td>
+
+                            <div class="progress-value-wrapper">
+
+                                <div
+                                    class="table-progress"
+                                    role="progressbar"
+                                    aria-valuenow="96"
+                                    aria-valuemin="0"
+                                    aria-valuemax="100"
+                                    aria-label="Financial Audit progress: 96%"
+                                >
+                                    <span style="width: 96%;"></span>
+                                </div>
+
+                                <span class="progress-value">
+                                    96%
+                                </span>
+
+                            </div>
+
+                        </td>
+
+
+                        <td>
+
+                            <span class="status completed">
+                                Completed
+                            </span>
+
+                        </td>
+
+
+                        <td>
+
+                            <button
+                                type="button"
+                                class="table-action"
+                                title="View Financial Audit"
+                                aria-label="View Financial Audit"
+                                onclick="viewAudit(this)"
+                            >
+                                <i class="fa-solid fa-eye"></i>
+                            </button>
+
+                        </td>
+
+                    </tr>
+
+
+                    <!-- =================================================
+                         AUDIT 2
+                    ================================================== -->
+                    <tr>
+
+                        <td>#AU-1023</td>
+
+                        <td>Compliance Review</td>
+
+                        <td>10 Aug 2026</td>
+
+
+                        <td>
+
+                            <div class="progress-value-wrapper">
+
+                                <div
+                                    class="table-progress"
+                                    role="progressbar"
+                                    aria-valuenow="72"
+                                    aria-valuemin="0"
+                                    aria-valuemax="100"
+                                    aria-label="Compliance Review progress: 72%"
+                                >
+                                    <span style="width: 72%;"></span>
+                                </div>
+
+                                <span class="progress-value">
+                                    72%
+                                </span>
+
+                            </div>
+
+                        </td>
+
+
+                        <td>
+
+                            <span class="status progress">
+                                In Progress
+                            </span>
+
+                        </td>
+
+
+                        <td>
+
+                            <button
+                                type="button"
+                                class="table-action"
+                                title="View Compliance Review"
+                                aria-label="View Compliance Review"
+                                onclick="viewAudit(this)"
+                            >
+                                <i class="fa-solid fa-eye"></i>
+                            </button>
+
+                        </td>
+
+                    </tr>
+
+
+                    <!-- =================================================
+                         AUDIT 3
+                    ================================================== -->
+                    <tr>
+
+                        <td>#AU-1022</td>
+
+                        <td>Risk Assessment</td>
+
+                        <td>07 Aug 2026</td>
+
+
+                        <td>
+
+                            <div class="progress-value-wrapper">
+
+                                <div
+                                    class="table-progress"
+                                    role="progressbar"
+                                    aria-valuenow="88"
+                                    aria-valuemin="0"
+                                    aria-valuemax="100"
+                                    aria-label="Risk Assessment progress: 88%"
+                                >
+                                    <span style="width: 88%;"></span>
+                                </div>
+
+                                <span class="progress-value">
+                                    88%
+                                </span>
+
+                            </div>
+
+                        </td>
+
+
+                        <td>
+
+                            <span class="status review">
+                                Under Review
+                            </span>
+
+                        </td>
+
+
+                        <td>
+
+                            <button
+                                type="button"
+                                class="table-action"
+                                title="View Risk Assessment"
+                                aria-label="View Risk Assessment"
+                                onclick="viewAudit(this)"
+                            >
+                                <i class="fa-solid fa-eye"></i>
+                            </button>
+
+                        </td>
+
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </div>
+
+</section>
+
+    <!-- =================================================
+         MY AUDITS
+    ================================================= -->
+<!-- =========================================================
+     AUDITS
+========================================================= -->
+<section class="page-section" id="audits">
+
+    <div class="section-hero">
+
+        <div>
+            <span class="panel-label">
+                AUDIT MANAGEMENT
+            </span>
+
+            <h1>My Audits</h1>
+
+            <p>
+                View and track all your assigned audit activities.
+            </p>
+        </div>
+
+        <button
+            type="button"
+            class="primary-btn"
+            id="newAuditBtn"
+            title="Request a new audit"
+        >
+            <i class="fa-solid fa-plus"></i>
+            <span>Request Audit</span>
+        </button>
+
+    </div>
+
+
+    <div class="audit-cards">
+
+        <!-- Financial Audit -->
+        <div class="audit-large-card">
+
+            <div class="card-icon-wrap">
+                <i class="fa-solid fa-file-invoice-dollar"></i>
+            </div>
+
+            <h3>Financial Audit</h3>
+
+            <p>
+                Annual financial compliance assessment.
+            </p>
+
+            <div
+                class="large-progress"
+                role="progressbar"
+                aria-valuenow="96"
+                aria-valuemin="0"
+                aria-valuemax="100"
+                aria-label="Financial Audit progress: 96%"
+            >
+                <span style="width: 96%;"></span>
+            </div>
+
+            <div class="progress-info">
+                <strong>96% Complete</strong>
+                <span>Completed</span>
+            </div>
+
+        </div>
+
+
+        <!-- Compliance Review -->
+        <div class="audit-large-card">
+
+            <div class="card-icon-wrap">
+                <i class="fa-solid fa-scale-balanced"></i>
+            </div>
+
+            <h3>Compliance Review</h3>
+
+            <p>
+                Internal compliance and control review.
+            </p>
+
+            <div
+                class="large-progress"
+                role="progressbar"
+                aria-valuenow="72"
+                aria-valuemin="0"
+                aria-valuemax="100"
+                aria-label="Compliance Review progress: 72%"
+            >
+                <span style="width: 72%;"></span>
+            </div>
+
+            <div class="progress-info">
+                <strong>72% Complete</strong>
+                <span>In Progress</span>
+            </div>
+
+        </div>
+
+
+        <!-- Risk Assessment -->
+        <div class="audit-large-card">
+
+            <div class="card-icon-wrap">
+                <i class="fa-solid fa-triangle-exclamation"></i>
+            </div>
+
+            <h3>Risk Assessment</h3>
+
+            <p>
+                Operational risk evaluation.
+            </p>
+
+            <div
+                class="large-progress"
+                role="progressbar"
+                aria-valuenow="88"
+                aria-valuemin="0"
+                aria-valuemax="100"
+                aria-label="Risk Assessment progress: 88%"
+            >
+                <span style="width: 88%;"></span>
+            </div>
+
+            <div class="progress-info">
+                <strong>88% Complete</strong>
+                <span>Under Review</span>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     REPORTS
+========================================================= -->
+<section class="page-section" id="reports">
+
+    <div class="section-hero">
+
+        <div>
+            <span class="panel-label">
+                REPORT CENTER
+            </span>
+
+            <h1>Reports</h1>
+
+            <p>
+                Review your audit and compliance reports.
+            </p>
+        </div>
+
+        <button
+            type="button"
+            class="primary-btn"
+            id="downloadReport"
+            title="Download report"
+        >
+            <i class="fa-solid fa-download"></i>
+            <span>Download Report</span>
+        </button>
+
+    </div>
+
+
+    <div class="report-grid">
+
+        <!-- Financial Report -->
+        <div class="report-card">
+
+            <div class="card-icon-wrap">
+                <i class="fa-solid fa-file-pdf"></i>
+            </div>
+
+            <h3>Financial Audit Report</h3>
+
+            <span class="file-info">
+                PDF • 2.4 MB
+            </span>
+
+            <button
+                type="button"
+                class="outline-btn report-open"
+                title="Open Financial Audit Report"
+                aria-label="Open Financial Audit Report"
+            >
+                <i class="fa-solid fa-eye"></i>
+                <span>Open Report</span>
+            </button>
+
+        </div>
+
+
+        <!-- Compliance Report -->
+        <div class="report-card">
+
+            <div class="card-icon-wrap">
+                <i class="fa-solid fa-file-lines"></i>
+            </div>
+
+            <h3>Compliance Report</h3>
+
+            <span class="file-info">
+                PDF • 1.8 MB
+            </span>
+
+            <button
+                type="button"
+                class="outline-btn report-open"
+                title="Open Compliance Report"
+                aria-label="Open Compliance Report"
+            >
+                <i class="fa-solid fa-eye"></i>
+                <span>Open Report</span>
+            </button>
+
+        </div>
+
+
+        <!-- Risk Report -->
+        <div class="report-card">
+
+            <div class="card-icon-wrap">
+                <i class="fa-solid fa-file-shield"></i>
+            </div>
+
+            <h3>Risk Assessment</h3>
+
+            <span class="file-info">
+                PDF • 3.1 MB
+            </span>
+
+            <button
+                type="button"
+                class="outline-btn report-open"
+                title="Open Risk Assessment Report"
+                aria-label="Open Risk Assessment Report"
+            >
+                <i class="fa-solid fa-eye"></i>
+                <span>Open Report</span>
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     DOCUMENTS
+========================================================= -->
+<section class="page-section" id="documents">
+
+    <div class="section-hero">
+
+        <div>
+            <span class="panel-label">
+                SECURE STORAGE
+            </span>
+
+            <h1>Documents</h1>
+
+            <p>
+                Manage your audit-related documents.
+            </p>
+        </div>
+
+        <button
+            type="button"
+            class="primary-btn"
+            id="uploadBtn"
+            title="Upload document"
+        >
+            <i class="fa-solid fa-cloud-arrow-up"></i>
+            <span>Upload Document</span>
+        </button>
+
+    </div>
+
+
+    <div class="document-grid">
+
+        <!-- Financial Statements -->
+        <div class="document-card">
+
+            <div class="card-icon-wrap">
+                <i class="fa-solid fa-file-pdf"></i>
+            </div>
+
+            <h3>
+                Financial Statements.pdf
+            </h3>
+
+            <span class="file-info">
+                Uploaded today
+            </span>
+
+            <button
+                type="button"
+                class="outline-btn document-open"
+                title="View Financial Statements"
+                aria-label="View Financial Statements"
+            >
+                <i class="fa-solid fa-eye"></i>
+                <span>View</span>
+            </button>
+
+        </div>
+
+
+        <!-- Audit Checklist -->
+        <div class="document-card">
+
+            <div class="card-icon-wrap">
+                <i class="fa-solid fa-file-excel"></i>
+            </div>
+
+            <h3>
+                Audit Checklist.xlsx
+            </h3>
+
+            <span class="file-info">
+                Uploaded yesterday
+            </span>
+
+            <button
+                type="button"
+                class="outline-btn document-open"
+                title="View Audit Checklist"
+                aria-label="View Audit Checklist"
+            >
+                <i class="fa-solid fa-eye"></i>
+                <span>View</span>
+            </button>
+
+        </div>
+
+
+        <!-- Compliance Notes -->
+        <div class="document-card">
+
+            <div class="card-icon-wrap">
+                <i class="fa-solid fa-file-word"></i>
+            </div>
+
+            <h3>
+                Compliance Notes.docx
+            </h3>
+
+            <span class="file-info">
+                Uploaded 3 days ago
+            </span>
+
+            <button
+                type="button"
+                class="outline-btn document-open"
+                title="View Compliance Notes"
+                aria-label="View Compliance Notes"
+            >
+                <i class="fa-solid fa-eye"></i>
+                <span>View</span>
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+    <!-- =================================================
+         SETTINGS
+    ================================================= -->
+
+    <section class="page-section" id="settings">
+
+        <div class="section-hero">
+            <div>
+                <span class="panel-label">ACCOUNT</span>
+                <h1>Settings</h1>
+                <p>Manage your AuditAssure profile.</p>
+            </div>
+        </div>
+
+
+        <div class="settings-card">
+
+            <div class="settings-avatar" id="settingsAvatar">
+                U
+            </div>
+
+            <div class="settings-form">
+
+                <label>
+                    Full Name
+                    <input type="text" id="settingsName">
+                </label>
+
+                <label>
+                    Gmail / Email
+                    <input type="email" id="settingsEmail">
+                </label>
+
+                <label>
+                    Account Role
+                    <input type="text" value="User" disabled>
+                </label>
+
+                <button class="primary-btn" id="saveSettings">
+                    <i class="fa-solid fa-floppy-disk"></i>
+                    Save Changes
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =================================================
+         SUPPORT
+    ================================================= -->
+
+    <section class="page-section" id="support">
+
+        <div class="section-hero">
+            <div>
+                <span class="panel-label">HELP CENTER</span>
+                <h1>Support</h1>
+                <p>Need help with your AuditAssure account?</p>
+            </div>
+        </div>
+
+
+        <div class="support-grid">
+
+            <div class="support-card">
+                <i class="fa-solid fa-headset"></i>
+                <h3>Contact Support</h3>
+                <p>
+                    Get assistance from the AuditAssure support team.
+                </p>
+                <button class="primary-btn support-btn">
+                    Contact Team
+                </button>
+            </div>
+
+
+            <div class="support-card">
+                <i class="fa-solid fa-circle-question"></i>
+                <h3>FAQ</h3>
+                <p>
+                    Find answers to common dashboard questions.
+                </p>
+                <button class="outline-btn support-btn">
+                    View FAQ
+                </button>
+            </div>
+
+
+            <div class="support-card">
+                <i class="fa-solid fa-shield"></i>
+                <h3>Security</h3>
+                <p>
+                    Learn about AuditAssure security and privacy.
+                </p>
+                <button class="outline-btn support-btn">
+                    Security Center
+                </button>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =================================================
+         FOOTER
+    ================================================= -->
+
+    <footer class="dashboard-footer">
+
+        <span>
+            © <span id="year"></span> AuditAssure
+        </span>
+
+        <span>
+            Secure Audit & Assurance User Portal
+        </span>
+
+    </footer>
+
+</main>
+
+
+<!-- =====================================================
+     NOTIFICATION POPUP
+===================================================== -->
+
+<div class="notification-panel" id="notificationPanel">
+
+  <div class="notification-head">
+    <strong>Notifications</strong>
+
+    <button
+        type="button"
+        id="closeNotifications"
+        aria-label="Close notifications"
+    >
+        <i class="fa-solid fa-xmark"></i>
+    </button>
+</div>
+
+    <div class="notification-item">
+        <i class="fa-solid fa-circle-check"></i>
+        <div>
+            <strong>Audit completed</strong>
+            <span>Financial Audit #AU-1024 completed.</span>
+        </div>
+    </div>
+
+    <div class="notification-item">
+        <i class="fa-solid fa-file"></i>
+        <div>
+            <strong>New document</strong>
+            <span>A new compliance document was added.</span>
+        </div>
+    </div>
+
+    <div class="notification-item">
+        <i class="fa-solid fa-clock"></i>
+        <div>
+            <strong>Audit reminder</strong>
+            <span>Risk assessment is awaiting review.</span>
+        </div>
+    </div>
+
+</div>
+
+
+<script src="./javascript/user.js"></script>
+
+</body>
+</html>
+
