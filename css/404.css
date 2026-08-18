@@ -1,0 +1,931 @@
+/* =========================================================
+   AUDITASSURE 404 PAGE
+   MODERN DARK / PURPLE DESIGN
+========================================================= */
+
+/* =========================================================
+   ROOT
+========================================================= */
+
+:root {
+    --primary: #7c3aed;
+    --primary-light: #a855f7;
+    --dark: #070711;
+    --dark-2: #0d0b18;
+    --white: #ffffff;
+    --text: #f4f1ff;
+    --muted: #a9a4b8;
+    --border: rgba(255,255,255,0.10);
+
+    --shadow:
+        0 25px 80px rgba(0,0,0,0.45);
+}
+
+
+/* =========================================================
+   RESET
+========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "Inter", sans-serif;
+    background: var(--dark);
+    color: var(--white);
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+button {
+    font-family: inherit;
+}
+
+
+/* =========================================================
+   BACKGROUND
+========================================================= */
+
+.background {
+    position: fixed;
+    inset: 0;
+    overflow: hidden;
+    z-index: -1;
+
+    background:
+        radial-gradient(
+            circle at 20% 20%,
+            rgba(124,58,237,0.15),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 80% 70%,
+            rgba(168,85,247,0.10),
+            transparent 30%
+        ),
+        var(--dark);
+}
+
+
+/* =========================================================
+   GRID
+========================================================= */
+
+.background::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    background-image:
+        linear-gradient(
+            rgba(255,255,255,0.025) 1px,
+            transparent 1px
+        ),
+        linear-gradient(
+            90deg,
+            rgba(255,255,255,0.025) 1px,
+            transparent 1px
+        );
+
+    background-size: 55px 55px;
+
+    mask-image:
+        linear-gradient(
+            to bottom,
+            black,
+            transparent 90%
+        );
+}
+
+
+/* =========================================================
+   DOTS
+========================================================= */
+
+.dot {
+    position: absolute;
+
+    width: 5px;
+    height: 5px;
+
+    border-radius: 50%;
+
+    background: #a855f7;
+
+    box-shadow:
+        0 0 12px #a855f7,
+        0 0 25px rgba(168,85,247,0.5);
+
+    animation: dotFloat 6s infinite ease-in-out;
+}
+
+.dot-1 {
+    top: 15%;
+    left: 12%;
+    animation-delay: 0s;
+}
+
+.dot-2 {
+    top: 25%;
+    right: 18%;
+    animation-delay: 1s;
+}
+
+.dot-3 {
+    bottom: 20%;
+    left: 18%;
+    animation-delay: 2s;
+}
+
+.dot-4 {
+    bottom: 28%;
+    right: 12%;
+    animation-delay: 3s;
+}
+
+.dot-5 {
+    top: 55%;
+    left: 7%;
+    animation-delay: 4s;
+}
+
+.dot-6 {
+    top: 12%;
+    right: 40%;
+    animation-delay: 5s;
+}
+
+@keyframes dotFloat {
+
+    0%,
+    100% {
+        transform: translateY(0) scale(1);
+        opacity: 0.4;
+    }
+
+    50% {
+        transform: translateY(-30px) scale(1.6);
+        opacity: 1;
+    }
+}
+
+
+/* =========================================================
+   FLOATING SQUARES
+========================================================= */
+
+.square {
+    position: absolute;
+
+    width: 80px;
+    height: 80px;
+
+    border: 1px solid rgba(168,85,247,0.15);
+
+    transform: rotate(45deg);
+
+    animation: squareMove 10s infinite ease-in-out;
+}
+
+.square-1 {
+    top: 12%;
+    left: 4%;
+}
+
+.square-2 {
+    right: 5%;
+    bottom: 12%;
+
+    width: 110px;
+    height: 110px;
+
+    animation-delay: 3s;
+}
+
+.square-3 {
+    right: 28%;
+    top: 8%;
+
+    width: 45px;
+    height: 45px;
+
+    animation-delay: 5s;
+}
+
+@keyframes squareMove {
+
+    0%,
+    100% {
+        transform:
+            rotate(45deg)
+            translateY(0);
+    }
+
+    50% {
+        transform:
+            rotate(90deg)
+            translateY(-25px);
+    }
+}
+
+
+/* =========================================================
+   GLOW
+========================================================= */
+
+.glow {
+    position: absolute;
+
+    border-radius: 50%;
+
+    filter: blur(90px);
+
+    pointer-events: none;
+}
+
+.glow-1 {
+    width: 280px;
+    height: 280px;
+
+    background: rgba(124,58,237,0.16);
+
+    top: 20%;
+    left: 20%;
+
+    animation: glowMove 8s infinite alternate;
+}
+
+.glow-2 {
+    width: 250px;
+    height: 250px;
+
+    background: rgba(168,85,247,0.12);
+
+    right: 15%;
+    bottom: 15%;
+
+    animation: glowMove 10s infinite alternate-reverse;
+}
+
+@keyframes glowMove {
+
+    from {
+        transform: translate(0,0);
+    }
+
+    to {
+        transform: translate(60px,-40px);
+    }
+}
+
+
+/* =========================================================
+   ERROR PAGE
+========================================================= */
+
+.error-page {
+    width: 100%;
+    min-height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    padding: 45px 20px 25px;
+}
+
+
+/* =========================================================
+   LOGO
+========================================================= */
+
+.logo {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+
+    font-size: 22px;
+    font-weight: 800;
+
+    letter-spacing: -0.5px;
+
+    animation: fadeDown 0.8s ease forwards;
+}
+
+.logo > span:last-child span {
+    color: var(--primary-light);
+}
+
+.logo-icon {
+    width: 42px;
+    height: 42px;
+
+    display: grid;
+    place-items: center;
+
+    border-radius: 12px;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--primary),
+            var(--primary-light)
+        );
+
+    box-shadow:
+        0 10px 35px rgba(124,58,237,0.35);
+
+    font-size: 18px;
+}
+
+
+/* =========================================================
+   CARD
+========================================================= */
+
+.error-card {
+    position: relative;
+
+    width: min(850px, 100%);
+
+    margin-top: 45px;
+
+    padding: 50px 45px 40px;
+
+    text-align: center;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,0.075),
+            rgba(255,255,255,0.025)
+        );
+
+    border: 1px solid var(--border);
+
+    border-radius: 30px;
+
+    backdrop-filter: blur(20px);
+
+    box-shadow: var(--shadow);
+
+    overflow: hidden;
+
+    animation: cardAppear 0.9s ease forwards;
+}
+
+
+/* =========================================================
+   CARD TOP LINE
+========================================================= */
+
+.card-line {
+    position: absolute;
+
+    top: 0;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    width: 180px;
+    height: 3px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            var(--primary-light),
+            transparent
+        );
+
+    box-shadow:
+        0 0 20px var(--primary-light);
+}
+
+
+/* =========================================================
+   ERROR ICON
+========================================================= */
+
+.error-icon {
+    width: 65px;
+    height: 65px;
+
+    margin: 0 auto 18px;
+
+    display: grid;
+    place-items: center;
+
+    border-radius: 20px;
+
+    color: var(--primary-light);
+
+    background:
+        rgba(124,58,237,0.12);
+
+    border: 1px solid rgba(168,85,247,0.20);
+
+    font-size: 25px;
+
+    animation:
+        iconFloat 3s ease-in-out infinite;
+}
+
+@keyframes iconFloat {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-8px);
+    }
+}
+
+
+/* =========================================================
+   LABEL
+========================================================= */
+
+.error-label {
+    color: var(--primary-light);
+
+    font-size: 12px;
+
+    font-weight: 800;
+
+    letter-spacing: 3px;
+
+    margin-bottom: 10px;
+}
+
+
+/* =========================================================
+   HEADING
+========================================================= */
+
+.error-card h1 {
+    font-size: clamp(32px, 5vw, 54px);
+
+    line-height: 1.1;
+
+    margin-bottom: 15px;
+
+    letter-spacing: -2px;
+}
+
+.error-card h1 span {
+    background:
+        linear-gradient(
+            90deg,
+            #ffffff,
+            var(--primary-light)
+        );
+
+    -webkit-background-clip: text;
+    background-clip: text;
+
+    -webkit-text-fill-color: transparent;
+}
+
+
+/* =========================================================
+   DESCRIPTION
+========================================================= */
+
+.error-text {
+    max-width: 570px;
+
+    margin: 0 auto;
+
+    color: var(--muted);
+
+    font-size: 15px;
+
+    line-height: 1.8;
+}
+
+
+/* =========================================================
+   BIG 404
+========================================================= */
+
+.error-number {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    gap: 10px;
+
+    margin: 25px 0 30px;
+
+    /* user-select: none; */
+}
+
+.four {
+    font-size: clamp(100px, 17vw, 170px);
+
+    line-height: 0.8;
+
+    font-weight: 900;
+
+    letter-spacing: -15px;
+
+    color: transparent;
+
+    -webkit-text-stroke:
+        2px rgba(168,85,247,0.55);
+
+    text-shadow:
+        0 0 35px rgba(124,58,237,0.25);
+
+    animation: numberPulse 4s infinite ease-in-out;
+}
+
+.four:last-child {
+    animation-delay: 0.5s;
+}
+
+@keyframes numberPulse {
+
+    0%,
+    100% {
+        opacity: 0.75;
+    }
+
+    50% {
+        opacity: 1;
+    }
+}
+
+
+/* =========================================================
+   ZERO
+========================================================= */
+
+.zero {
+    width: clamp(100px, 17vw, 170px);
+    height: clamp(100px, 17vw, 170px);
+
+    border-radius: 50%;
+
+    display: grid;
+    place-items: center;
+
+    background:
+        conic-gradient(
+            from 0deg,
+            var(--primary),
+            var(--primary-light),
+            var(--primary),
+            var(--primary-light),
+            var(--primary)
+        );
+
+    padding: 7px;
+
+    animation: rotateZero 8s linear infinite;
+
+    box-shadow:
+        0 0 40px rgba(124,58,237,0.30);
+}
+
+.zero-inner {
+    width: 100%;
+    height: 100%;
+
+    border-radius: 50%;
+
+    display: grid;
+    place-items: center;
+
+    background: var(--dark-2);
+
+    font-size: clamp(28px, 5vw, 50px);
+
+    color: var(--primary-light);
+
+    animation: counterRotate 8s linear infinite;
+}
+
+@keyframes rotateZero {
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes counterRotate {
+
+    to {
+        transform: rotate(-360deg);
+    }
+}
+
+
+/* =========================================================
+   BUTTONS
+========================================================= */
+
+.error-actions {
+    display: flex;
+
+    justify-content: center;
+
+    gap: 14px;
+
+    flex-wrap: wrap;
+}
+
+.btn {
+    min-width: 170px;
+
+    padding: 15px 23px;
+
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 9px;
+
+    border-radius: 12px;
+
+    font-size: 14px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        background 0.3s ease;
+}
+
+
+/* Primary */
+
+.btn-primary {
+    color: white;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--primary),
+            var(--primary-light)
+        );
+
+    box-shadow:
+        0 12px 30px rgba(124,58,237,0.30);
+}
+
+.btn-primary:hover {
+    transform: translateY(-4px);
+
+    box-shadow:
+        0 18px 40px rgba(124,58,237,0.45);
+}
+
+
+/* Outline */
+
+.btn-outline {
+    color: var(--white);
+
+    background: rgba(255,255,255,0.04);
+
+    border: 1px solid rgba(255,255,255,0.12);
+}
+
+.btn-outline:hover {
+    transform: translateY(-4px);
+
+    background: rgba(255,255,255,0.09);
+
+    border-color:
+        rgba(168,85,247,0.5);
+}
+
+
+/* =========================================================
+   HELP
+========================================================= */
+
+.help-text {
+    margin-top: 28px;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 8px;
+
+    color: var(--muted);
+
+    font-size: 13px;
+}
+
+.help-icon {
+    color: var(--primary-light);
+}
+
+.help-text a {
+    color: var(--primary-light);
+
+    font-weight: 700;
+
+    transition: color 0.3s ease;
+}
+
+.help-text a:hover {
+    color: white;
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+.error-footer {
+    width: min(850px, 100%);
+
+    margin-top: auto;
+    padding-top: 35px;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    gap: 20px;
+
+    color: #777286;
+
+    font-size: 12px;
+}
+
+.footer-links {
+    display: flex;
+
+    gap: 20px;
+}
+
+.footer-links a {
+    transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: var(--primary-light);
+}
+
+
+/* =========================================================
+   ANIMATIONS
+========================================================= */
+
+@keyframes cardAppear {
+
+    from {
+        opacity: 0;
+        transform:
+            translateY(40px)
+            scale(0.96);
+    }
+
+    to {
+        opacity: 1;
+        transform:
+            translateY(0)
+            scale(1);
+    }
+}
+
+@keyframes fadeDown {
+
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 700px) {
+
+    .error-page {
+        padding: 30px 15px 20px;
+    }
+
+    .error-card {
+        margin-top: 30px;
+
+        padding: 35px 20px 30px;
+
+        border-radius: 22px;
+    }
+
+    .error-card h1 {
+        letter-spacing: -1px;
+    }
+
+    .error-text {
+        font-size: 13px;
+    }
+
+    .error-number {
+        gap: 4px;
+        margin: 25px 0;
+    }
+
+    .four {
+        letter-spacing: -8px;
+    }
+
+    .error-actions {
+        flex-direction: column;
+
+        width: 100%;
+    }
+
+    .btn {
+        width: 100%;
+    }
+
+    .help-text {
+        flex-direction: column;
+
+        line-height: 1.6;
+    }
+
+    .error-footer {
+        flex-direction: column;
+
+        text-align: center;
+
+        padding-top: 25px;
+    }
+
+    .footer-links {
+        gap: 14px;
+
+        flex-wrap: wrap;
+
+        justify-content: center;
+    }
+
+    .square {
+        opacity: 0.5;
+    }
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 400px) {
+
+    .logo {
+        font-size: 19px;
+    }
+
+    .logo-icon {
+        width: 38px;
+        height: 38px;
+    }
+
+    .error-card {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+    .error-icon {
+        width: 55px;
+        height: 55px;
+    }
+}
